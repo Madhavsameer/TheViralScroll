@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "title": "Understanding React Hooks",
+      "excerpt": "A deep dive into React Hooks and how they simplify state management.",
+      "image": "/images/react-hooks.jpg",
+      "date": "2025-03-01",
+      "categories": ["React", "JavaScript"]
+    },
+    {
+      "id": 2,
+      "title": "Mastering JavaScript Closures",
+      "excerpt": "Learn how closures work in JavaScript and their real-world use cases.",
+      "image": "/images/js-closures.jpg",
+      "date": "2025-02-28",
+      "categories": ["JavaScript"]
+    },
+    {
+      "id": 3,
+      "title": "Getting Started with Node.js",
+      "excerpt": "A beginner-friendly guide to building applications with Node.js.",
+      "image": "/images/nodejs.jpg",
+      "date": "2025-02-25",
+      "categories": ["Node.js", "Backend"]
+    }
+  ]
+  
