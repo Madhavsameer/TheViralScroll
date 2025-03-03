@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import { Link } from "react-router-dom";
 import TrendingBlogs from "./TrendingBlogs";
 import blogsData from "../data/blogs.json";
+import Categories from "./Categories";
 
 const Home = () => {
   const [latestBlogs, setLatestBlogs] = useState([]);
@@ -21,6 +22,8 @@ const Home = () => {
           <Link to="/blogs" className="explore-btn">Explore Blogs</Link>
         </div>
       </div>
+
+      <Categories/>
       
       <TrendingBlogs />
 
