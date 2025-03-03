@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/BlogCard.css";
 
 const BlogCard = ({ blog }) => {
   const navigate = useNavigate();
+  const [currentImage, setCurrentImage] = useState(0);
 
   const handleViewDetails = () => {
     navigate(`/blog/${blog.id}`);
   };
 
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % blog.images.length);
+  };
+
   return (
     <div className="blog-card">
-      <img src={blog.image} alt={blog.title} className="blog-image" />
+      <img
+        src={require(`../assets/${blog.images[currentImage]}`)}
+        alt={blog.title}
+        className="blog-image"
+        onClick={nextImage}
+      />
       <div className="blog-content">
         <h3>{blog.title}</h3>
         <p>{blog.description}</p>

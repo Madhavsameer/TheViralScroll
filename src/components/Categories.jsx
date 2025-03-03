@@ -1,59 +1,57 @@
 import React, { useState } from "react";
-import "../styles/Categories.css";
+import BlogCard from "./BlogCard";
 import blogsData from "../data/blogs.json";
-import { FaLaptopCode, FaFootballBall, FaNewspaper, FaLandmark } from "react-icons/fa";
+import "../styles/Categories.css";
+import { FaRunning, FaFire, FaLaptopCode, FaLandmark, FaGlobe } from "react-icons/fa"; // Import icons
 
+// Map categories to FontAwesome icons
 const categoryIcons = {
-  Tech: <FaLaptopCode size={40} />, 
-  Sports: <FaFootballBall size={40} />, 
-  News: <FaNewspaper size={40} />, 
-  Politics: <FaLandmark size={40} />,
+  All: <FaGlobe />,
+  Sports: <FaRunning />,
+  Trending: <FaFire />,
+  Tech: <FaLaptopCode />,
+  Politics: <FaLandmark />,
 };
 
-
-
 const Categories = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // Extract unique categories from blogs
-  const categories = [...new Set(blogsData.flatMap((blog) => blog.categories))];
+  // Get unique categories
+  const categories = ["All", ...new Set(blogsData.map((blog) => blog.category))];
 
-  // Filter blogs based on selected category
-  const filteredBlogs = selectedCategory
-    ? blogsData.filter((blog) => blog.categories.includes(selectedCategory))
-    : [];
+  // Filter blogs based on category
+  const filteredBlogs =
+    selectedCategory === "All"
+      ? blogsData
+      : blogsData.filter((blog) => blog.category === selectedCategory);
 
   return (
-    <section id="categories">
-      <h2>Explore Categories</h2>
+    <div className="categories-container">
+      <h1>Browse by Category</h1>
+      
+      {/* Category Cards */}
       <div className="category-cards">
-        {categories.map((category, index) => (
+        {categories.map((category) => (
           <div
-            key={index}
+            key={category}
             className={`category-card ${selectedCategory === category ? "active" : ""}`}
             onClick={() => setSelectedCategory(category)}
           >
-            {categoryIcons[category] || ""}
-            <h3>{category}</h3>
+            <div className="category-icon">{categoryIcons[category] || <FaGlobe />}</div>
+            <p>{category}</p>
           </div>
         ))}
       </div>
 
-      {selectedCategory && (
-        <div className="filtered-blogs">
-          <h3>Blogs in {selectedCategory}</h3>
-          <div className="blog-list">
-            {filteredBlogs.map((blog) => (
-              <div className="blog-card" key={blog.id}>
-                <img src={blog.image} alt={blog.title} />
-                <h3>{blog.title}</h3>
-                <p>{blog.excerpt}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </section>
+      {/* Blog List */}
+      <div className="blog-container">
+        {filteredBlogs.length > 0 ? (
+          filteredBlogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+        ) : (
+          <p>No blogs available in this category</p>
+        )}
+      </div>
+    </div>
   );
 };
 

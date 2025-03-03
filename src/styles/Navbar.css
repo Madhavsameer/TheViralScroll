@@ -1,60 +1,114 @@
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
+
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px 20px;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Nav Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center; /* Ensures input and button align properly */
+  gap: 5px;
+  border-radius: 10px;
+}
+
+.search-bar input {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ffcc00;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-bar button:hover {
+  background-color: #e6b800;
+}
+
+/* 📌 Responsive Design for Mobile */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  right: 20px; /* Move to the right */
+  top: 15px;   /* Adjust vertical position */
+}
+
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
   }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
+
+  .menu-icon {
+    display: block; /* Show menu icon */
   }
-  
+
   .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    display: none; /* Hide menu */
+    background-color: #333;
+    padding: 10px 0;
   }
-  
+
+  .nav-links.show {
+    display: flex; /* Show when menu is clicked */
+  }
+
   .nav-links li {
-    display: inline;
+    padding: 10px;
   }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #ffcc00;
-  }
-  
-  .search-bar {
-    display: flex;
-    gap: 5px;
-  }
-  
-  .search-bar input {
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  .search-bar button {
-    padding: 6px 10px;
-    border: none;
-    background-color: #ffcc00;
-    cursor: pointer;
-  }
-  
-  .search-bar button:hover {
-    background-color: #e6b800;
-  }
-  
+}

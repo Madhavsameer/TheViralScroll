@@ -3,81 +3,34 @@
       "id": 1,
       "title": "Introduction to React",
       "description": "Learn the basics of React and how to build single-page applications.",
-      "image": "./images/banner.jpg",
+      "images": ["banner.jpg", "banner2.jpg"],
       "author": "John Doe",
-      "date": "2025-03-01"
+      "date": "2025-03-01",
+      "trending":true,
+      "category": "Tech"
+
     },
     {
       "id": 2,
       "title": "Understanding JavaScript",
       "description": "Deep dive into JS concepts",
-      "image": "/assets/javascript.png",
+      "images": ["banner2.jpg", "banner3.jpg"],
       "author": "Jane Smith",
+      "category": "Sports",
+      "trending":false,
       "date": "2025-03-02"
+      
     },
     {
-      "id": 3,
-      "title": "Mastering CSS Flexbox",
-      "description": "A complete guide to CSS Flexbox for responsive designs.",
-      "image": "/assets/css.png",
-      "author": "Alice Johnson",
-      "date": "2025-03-03"
-    },
-    {
-      "id": 4,
-      "title": "Backend Development with Node.js",
-      "description": "Learn how to build scalable backend applications using Node.js.",
-      "image": "/assets/node.png",
-      "author": "Michael Brown",
-      "date": "2025-03-04"
-    },
-    {
-      "id": 5,
-      "title": "Database Design Principles",
-      "description": "Best practices for designing and optimizing relational databases.",
-      "image": "/assets/database.png",
-      "author": "David White",
-      "date": "2025-03-05"
-    },
-    {
-      "id": 6,
-      "title": "Python for Data Science",
-      "description": "How Python is used in data science, including libraries like Pandas and NumPy.",
-      "image": "/assets/python.png",
-      "author": "Sophia Martinez",
-      "date": "2025-03-06"
-    },
-    {
-      "id": 7,
-      "title": "State Management in React",
-      "description": "Understanding state management techniques like Redux and Context API.",
-      "image": "/assets/react-state.png",
-      "author": "Emma Wilson",
-      "date": "2025-03-07"
-    },
-    {
-      "id": 8,
-      "title": "Building RESTful APIs with Express.js",
-      "description": "Step-by-step guide to building and securing RESTful APIs.",
-      "image": "/assets/express.png",
-      "author": "Liam Harris",
-      "date": "2025-03-08"
-    },
-    {
-      "id": 9,
-      "title": "SEO Optimization for Web Developers",
-      "description": "How to optimize web pages for better search engine rankings.",
-      "image": "/assets/seo.png",
-      "author": "Olivia Thomas",
-      "date": "2025-03-09"
-    },
-    {
-      "id": 10,
-      "title": "Deploying Applications on AWS",
-      "description": "Learn how to deploy scalable web apps on AWS.",
-      "image": "/assets/aws.png",
-      "author": "William Brown",
-      "date": "2025-03-10"
+      "id": 2,
+      "title": "Understanding JavaScript",
+      "description": "Deep dive into JS concepts",
+      "images": ["banner2.jpg", "banner3.jpg"],
+      "author": "Jane Smith",
+      "category": "Politics",
+      "trending":true,
+      "date": "2025-03-02"
+      
     }
   ]
   
