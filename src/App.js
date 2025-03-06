@@ -14,6 +14,7 @@ import AdminAuth from './components/AdminAuth';
 import AddBlog from './components/AddBlog';
 import ManageBlogs from './components/ManageBlogs';
 import ViewInsights from './components/ViewInsights';
+import AdminContacts from './components/AdminContacts';
 
 function App() {
   return (
@@ -33,7 +34,9 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/addblog" element={<AddBlog />} />
           <Route path="/admin/manage-blogs" element={<ManageBlogs />} />
-<Route path="/admin/insights" element={<ViewInsights />} />
+          <Route path="/admin/insights" element={<ViewInsights />} />
+          <Route path="/admin/contact-messages" element={<AdminContacts />} />
+
 
         </Routes>
         <Footer/>

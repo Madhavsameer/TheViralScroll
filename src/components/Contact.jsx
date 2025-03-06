@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { db } from "../firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
 import "../styles/Contact.css";
 
 const Contact = () => {
@@ -7,16 +9,29 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you for reaching out! We will get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+
+    try {
+      await addDoc(collection(db, "contacts"), {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        timestamp: new Date().toISOString(),
+      });
+
+      setSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+    }
   };
 
   return (
@@ -24,11 +39,11 @@ const Contact = () => {
       <div className="contact__info">
         <h2>Contact Us</h2>
         <p>We'd love to hear from you! Reach out for any inquiries or feedback.</p>
-        
       </div>
       
       <div className="contact__form">
         <h3>Get in Touch</h3>
+        {success && <p className="success-message">Message sent successfully!</p>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>

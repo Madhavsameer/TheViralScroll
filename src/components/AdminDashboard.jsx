@@ -19,6 +19,7 @@ const AdminDashboard = () => {
         <button onClick={() => navigate("/addblog")} className="admin-btn">Add Blog</button>
         <button onClick={() => navigate("/admin/manage-blogs")} className="admin-btn">Manage Blogs</button>
         <button onClick={() => navigate("/admin/insights")} className="admin-btn">View Insights</button>
+        <button onClick={() => navigate("/admin/contact-messages")} className="admin-btn">View Contacts</button>
       </div>
     </div>
   );
