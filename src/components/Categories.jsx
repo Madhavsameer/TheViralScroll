@@ -1,29 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
-import blogsData from "../data/blogs.json";
+import { db } from "../firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 import "../styles/Categories.css";
-import { FaRunning, FaFire, FaLaptopCode, FaLandmark, FaGlobe } from "react-icons/fa"; // Import icons
+import { FaRunning, FaFire, FaLaptopCode, FaLandmark, FaGlobe } from "react-icons/fa";
 
 // Map categories to FontAwesome icons
 const categoryIcons = {
-  All: <FaGlobe />,
-  Sports: <FaRunning />,
-  Trending: <FaFire />,
-  Tech: <FaLaptopCode />,
+  All: <FaGlobe />, 
+  Sports: <FaRunning />, 
+  Trending: <FaFire />, 
+  Tech: <FaLaptopCode />, 
   Politics: <FaLandmark />,
 };
 
 const Categories = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [blogs, setBlogs] = useState([]);
+  const [categories, setCategories] = useState(["All"]);
+  const [loading, setLoading] = useState(true);
 
-  // Get unique categories
-  const categories = ["All", ...new Set(blogsData.map((blog) => blog.category))];
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "blogs"));
+        const fetchedBlogs = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setBlogs(fetchedBlogs);
+
+        // Extract unique categories from blogs
+        const uniqueCategories = ["All", ...new Set(fetchedBlogs.map((blog) => blog.category))];
+        setCategories(uniqueCategories);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   // Filter blogs based on category
   const filteredBlogs =
-    selectedCategory === "All"
-      ? blogsData
-      : blogsData.filter((blog) => blog.category === selectedCategory);
+    selectedCategory === "All" ? blogs : blogs.filter((blog) => blog.category === selectedCategory);
 
   return (
     <div className="categories-container">
@@ -45,8 +63,10 @@ const Categories = () => {
 
       {/* Blog List */}
       <div className="blog-container">
-        {filteredBlogs.length > 0 ? (
-          filteredBlogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+        {loading ? (
+          <p>Loading blogs...</p>
+        ) : filteredBlogs.length > 0 ? (
+          filteredBlogs.map((blog) => <BlogCard key={blog.id} blogId={blog.id} />)
         ) : (
           <p>No blogs available in this category</p>
         )}

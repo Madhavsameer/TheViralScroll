@@ -9,6 +9,7 @@ import BlogList from './components/BlogList';
 import BlogDetails from './components/BlogDetails';
 import Categories from './components/Categories';
 import SearchResults from './components/SearchResults';
+import AddBlog from './components/AddBlog';
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
           <Route path='/contact' element={<Contact/>} /> 
           <Route path='/categories' element={<Categories/>} /> 
           <Route path='/blogs' element={<BlogList/>} />
-          <Route path="/blog/:id" element={<BlogDetails />}  />
+          <Route path="/blog/:slug" element={<BlogDetails />}  />
           <Route path="/search" element={<SearchResults />} />
+          <Route path="/addblog" element={<AddBlog />} />
         </Routes>
         <Footer/>
     </div>

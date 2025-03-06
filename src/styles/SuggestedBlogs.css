@@ -1,0 +1,12 @@
+.suggested-blogs-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .suggested-blogs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
