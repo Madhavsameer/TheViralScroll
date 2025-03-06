@@ -1,0 +1,27 @@
+.view-insights-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .insights p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .insights ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .insights li {
+    background: #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  

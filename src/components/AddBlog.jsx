@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { db } from "../firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import "../styles/AddBlog.css";
 
 const AddBlog = () => {
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const isAdmin = localStorage.getItem("isAdmin");
+    if (!isAdmin) {
+      navigate("/admin"); // Redirect to admin login if not authenticated
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, [navigate]);
+
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [description, setDescription] = useState("");
@@ -45,22 +58,15 @@ const AddBlog = () => {
         createdAt: new Date().toISOString(),
       });
       alert("Blog Added Successfully!");
-      setTitle("");
-      setSlug("");
-      setDescription("");
-      setAuthor("");
-      setCategory("");
-      setTrending(false);
-      setImage("");
-      setTags("");
-      setContent("");
-      setFeatured(false);
-      setVisibility("public");
-      setScheduleDate("");
+      navigate("/admin/dashboard");
     } catch (error) {
       console.error("Error adding blog:", error);
     }
   };
+
+  if (!isAuthenticated) {
+    return null; // Prevent UI from rendering until authentication is checked
+  }
 
   return (
     <div className="add-blog-container">

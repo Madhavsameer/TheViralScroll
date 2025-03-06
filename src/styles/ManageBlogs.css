@@ -1,0 +1,39 @@
+.manage-blogs-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .blog-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .blog-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .actions button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .delete-btn {
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .delete-btn:hover {
+    background-color: darkred;
+  }
+  
