@@ -15,6 +15,8 @@ import AddBlog from './components/AddBlog';
 import ManageBlogs from './components/ManageBlogs';
 import ViewInsights from './components/ViewInsights';
 import AdminContacts from './components/AdminContacts';
+import Privacy from './components/Privacy';
+import Terms from './components/Terms';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
           <Route path="/admin/manage-blogs" element={<ManageBlogs />} />
           <Route path="/admin/insights" element={<ViewInsights />} />
           <Route path="/admin/contact-messages" element={<AdminContacts />} />
+          <Route path='/privacy' element={<Privacy/>}/>
+          <Route path='/terms' element={<Terms/>}/>
 
 
         </Routes>

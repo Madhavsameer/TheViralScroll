@@ -14,10 +14,18 @@ body {
 }
 
 /* Logo */
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+.logo-img {
+  width: 120px; /* Adjust as needed */
+  height: 80px;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+
+
 
 /* Nav Links */
 .nav-links {
@@ -45,7 +53,7 @@ body {
 /* Search Bar */
 .search-bar {
   display: flex;
-  align-items: center; /* Ensures input and button align properly */
+  align-items: center;
   gap: 5px;
   border-radius: 10px;
 }
@@ -78,10 +86,9 @@ body {
   cursor: pointer;
   color: white;
   position: absolute;
-  right: 20px; /* Move to the right */
-  top: 15px;   /* Adjust vertical position */
+  right: 20px;
+  top: 15px;
 }
-
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
@@ -92,20 +99,20 @@ body {
   }
 
   .menu-icon {
-    display: block; /* Show menu icon */
+    display: block;
   }
 
   .nav-links {
     flex-direction: column;
     width: 100%;
     text-align: center;
-    display: none; /* Hide menu */
+    display: none;
     background-color: #333;
     padding: 10px 0;
   }
 
   .nav-links.show {
-    display: flex; /* Show when menu is clicked */
+    display: flex;
   }
 
   .nav-links li {

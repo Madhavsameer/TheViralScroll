@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import blogsData from "../data/blogs.json"; // Importing blog data
+import logo from "../assets/logo.png"; // Import the new logo
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +18,12 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo">MyBlog</div>
+      {/* Logo with Image - Now Clickable */}
+      <div className="logo">
+        <Link to="/home">
+          <img src={logo} alt="The Viral Scroll Logo" className="logo-img" />
+        </Link>
+      </div>
 
       {/* Hamburger Menu Icon */}
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>

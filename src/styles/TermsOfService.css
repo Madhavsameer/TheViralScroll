@@ -1,0 +1,20 @@
+.terms-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .terms-container h2, .terms-container h3 {
+    color: #333;
+  }
+  
+  .terms-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
