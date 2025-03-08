@@ -2,27 +2,83 @@
   max-width: 1200px;
   margin: 40px auto;
   text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .blog-list h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #222;
+  margin-bottom: 30px;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
-
 .blog-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Fix grid layout */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
-  justify-content: center; 
-  padding: 10px;
-  width: 100%;
+  padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+.blog-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  width: 320px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.blog-card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.blog-card h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.blog-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.blog-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.blog-card a:hover {
+  text-decoration: underline;
+}
 
 /* Loader or No Blogs Available Message */
 .blog-list p {
@@ -34,9 +90,13 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .blog-list h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .blog-container {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    flex-direction: column;
+    align-items: center;
+  }
+  .blog-card {
+    width: 90%;
   }
 }
