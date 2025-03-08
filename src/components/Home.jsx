@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/Home.css";
 import { Link } from "react-router-dom";
 import TrendingBlogs from "./TrendingBlogs";
+import Categories from "./Categories";
+import About from "./About";
 
 
 
@@ -19,6 +21,7 @@ const Home = () => {
         </div>
       </div>
       <TrendingBlogs/>
+      <About/>
 
       
 
