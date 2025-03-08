@@ -29,7 +29,7 @@ const About = () => {
             <div className="about__content">
               <h2>About Our Blog</h2>
               <p>
-                Welcome to MyBlog, your go-to destination for insightful articles,
+                Welcome to The Viral Scroll, your go-to destination for insightful articles,
                 latest trends, and expert opinions on a variety of topics. Our mission
                 is to inspire, educate, and connect readers through engaging content.
                 From technology to lifestyle, we bring you well-researched and compelling
@@ -41,14 +41,14 @@ const About = () => {
                   <span className="counter">
                     <CountUp start={0} end={500} duration={5} suffix="+" />
                   </span>
-                  <p className="counter__title">500+ Blog Posts</p>
+                  <p className="counter__title">50+ Blog Posts</p>
                 </div>
 
                 <div className="single__counter">
                   <span className="counter">
                     <CountUp start={0} end={50} duration={5} suffix="+" />
                   </span>
-                  <p className="counter__title">50+ Expert Writers</p>
+                  <p className="counter__title">5+ Expert Writers</p>
                 </div>
 
                 <div className="single__counter">
