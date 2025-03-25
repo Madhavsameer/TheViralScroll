@@ -20,6 +20,9 @@ import Terms from './components/Terms';
 
 function App() {
   return (
+  
+
+    habhai
     
       <div className="App">
         <Navbar/>
