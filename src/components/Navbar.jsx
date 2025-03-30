@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import blogsData from "../data/blogs.json"; // Importing blog data
-import logo from "../assets/logo.png"; // Import the new logo
+import logo from "../assets/theviral.png"; // Import the new logo
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
