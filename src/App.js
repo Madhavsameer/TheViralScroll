@@ -30,7 +30,7 @@ function App() {
             name="description"
             content="Welcome to My Blog, where we share insightful articles on various topics."
           />
-          <meta name="keywords" content="blog, articles, technology, lifestyle" />
+          <meta name="keywords" content="theviralscroll, the viral scroll,  blogs, trending blogs, articles"  />
           <meta name="robots" content="index, follow" />
           <meta property="og:title" content="My Blog - Home" />
           <meta
