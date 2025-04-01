@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebaseConfig";
 import { collection, getDocs, query, where, doc, addDoc, onSnapshot } from "firebase/firestore";
+import { Helmet } from "react-helmet-async";  // ✅ Helmet import kiya
 import "../styles/BlogDetails.css";
 import SuggestedBlogs from "./SuggestedBlogs";
 
@@ -66,8 +67,51 @@ const BlogDetails = () => {
   if (loading) return <p className="loading">Loading...</p>;
   if (!blog) return <p className="error">Blog Not Found</p>;
 
+  // SEO Optimization
+  const tags = blog.tags.join(", ");  // Tags as comma separated string
+
   return (
     <div className="blog-details-container">
+      {/* SEO Tags using Helmet */}
+      <Helmet>
+        <title>{blog.title} - My Tech Blog</title>
+        <meta name="description" content={blog.description} />
+        <meta name="keywords" content={tags} />
+        <meta name="author" content={blog.author} />
+        
+        {/* Open Graph Tags for Social Sharing */}
+        <meta property="og:title" content={blog.title} />
+        <meta property="og:description" content={blog.description} />
+        <meta property="og:image" content={blog.image} />
+        <meta property="og:url" content={`https://theviralscroll.netlify.app/blog/${slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="My Tech Blog" />
+        <meta property="og:tags" content={tags} /> {/* Open Graph tags */}
+        
+        {/* Structured Data for Google Rich Snippets */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": "${blog.title}",
+              "description": "${blog.description}",
+              "author": {
+                "@type": "Person",
+                "name": "${blog.author}"
+              },
+              "datePublished": "${new Date(blog.createdAt).toISOString()}",
+              "keywords": "${tags}",
+              "image": "${blog.image}",
+              "url": "https://theviralscroll.netlify.app/blog/${slug}"
+            }
+          `}
+        </script>
+
+        {/* Canonical Link */}
+        <link rel="canonical" href={`https://theviralscroll.netlify.app/blog/${slug}`} />
+      </Helmet>
+
       <h2 className="blog-title">{blog.title}</h2>
       {blog.image && <img src={blog.image} alt={blog.title} className="blog-image" />}
       <p className="blog-description">{blog.description}</p>

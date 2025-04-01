@@ -30,7 +30,6 @@ const BlogCard = ({ blogId }) => {
   const handleViewDetails = () => {
     navigate(`/blog/${blog.slug}`); // Navigate using slug instead of Firestore ID
   };
-  
 
   return (
     <div className="blog-card">

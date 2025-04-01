@@ -44,7 +44,7 @@ const AddBlog = () => {
     try {
       await addDoc(collection(db, "blogs"), {
         title,
-        slug: generateSlug(title),
+        slug: generateSlug(title), // Slug based on title
         description,
         author,
         category,
@@ -72,15 +72,65 @@ const AddBlog = () => {
     <div className="add-blog-container">
       <h2>Add New Blog</h2>
       <form onSubmit={handleSubmit} className="blog-form">
-        <input type="text" placeholder="Title" value={title} onChange={(e) => { setTitle(e.target.value); setSlug(generateSlug(e.target.value)); }} required />
-        <input type="text" placeholder="Slug (auto-generated)" value={slug} disabled />
-        <textarea placeholder="Short Description" value={description} onChange={(e) => setDescription(e.target.value)} required />
-        <input type="text" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required />
-        <input type="text" placeholder="Category" value={category} onChange={(e) => setCategory(e.target.value)} required />
-        <input type="text" placeholder="Tags (comma-separated)" value={tags} onChange={(e) => setTags(e.target.value)} />
-        <textarea placeholder="Full Blog Content" value={content} onChange={(e) => { setContent(e.target.value); setWordCount(e.target.value.split(" ").length); }} required className="blog-content-textarea" />
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => { 
+            setTitle(e.target.value); 
+            setSlug(generateSlug(e.target.value)); // Auto-generate slug when title changes
+          }}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Slug (auto-generated)"
+          value={slug}
+          disabled
+        />
+        <textarea
+          placeholder="Short Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Tags (comma-separated)"
+          value={tags}
+          onChange={(e) => setTags(e.target.value)}
+        />
+        <textarea
+          placeholder="Full Blog Content"
+          value={content}
+          onChange={(e) => { 
+            setContent(e.target.value); 
+            setWordCount(e.target.value.split(" ").length); // Word count update
+          }}
+          required
+          className="blog-content-textarea"
+        />
         <p>Word Count: {wordCount}</p>
-        <input type="text" placeholder="Image URL" value={image} onChange={(e) => setImage(e.target.value)} />
+        <input
+          type="text"
+          placeholder="Image URL"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
         {image && <img src={image} alt="Blog Preview" className="blog-preview" />}
         <label>
           Trending: <input type="checkbox" checked={trending} onChange={(e) => setTrending(e.target.checked)} />
@@ -98,7 +148,11 @@ const AddBlog = () => {
         </label>
         <label>
           Schedule Date:
-          <input type="datetime-local" value={scheduleDate} onChange={(e) => setScheduleDate(e.target.value)} />
+          <input
+            type="datetime-local"
+            value={scheduleDate}
+            onChange={(e) => setScheduleDate(e.target.value)}
+          />
         </label>
         <button type="submit" className="submit-btn">Add Blog</button>
       </form>
