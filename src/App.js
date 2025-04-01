@@ -37,7 +37,7 @@ function App() {
             property="og:description"
             content="Welcome to My Blog, where we share insightful articles on various topics."
           />
-          <meta property="og:image" content="path_to_image" />
+          <meta property="og:image" content="./assets/theviral.png" />
           <meta property="og:url" content="https://theviralscroll.netlify.app" />
         </Helmet>
 
