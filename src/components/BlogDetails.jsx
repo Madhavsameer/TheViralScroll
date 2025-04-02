@@ -72,7 +72,7 @@ const BlogDetails = () => {
 
   return (
     <div className="blog-details-container">
-      {/* SEO Tags using Helmet */}
+     
       <Helmet>
         <title>{blog.title} - My Tech Blog</title>
         <meta name="description" content={blog.description} />

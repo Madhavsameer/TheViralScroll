@@ -53,7 +53,7 @@ function App() {
           <Route path="/search" element={<SearchResults />} />
           <Route path="/admin" element={<AdminAuth />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/add" element={<AddBlog />} />
+          <Route path="/addblog" element={<AddBlog />} />
           <Route path="/admin/manage" element={<ManageBlogs />} />
           <Route path="/admin/insights" element={<ViewInsights />} />
           <Route path="/admin/contacts" element={<AdminContacts />} />
