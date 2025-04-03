@@ -54,9 +54,9 @@ function App() {
           <Route path="/admin" element={<AdminAuth />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/addblog" element={<AddBlog />} />
-          <Route path="/admin/manage" element={<ManageBlogs />} />
+          <Route path="/admin/manage-blogs" element={<ManageBlogs />} />
           <Route path="/admin/insights" element={<ViewInsights />} />
-          <Route path="/admin/contacts" element={<AdminContacts />} />
+          <Route path="/admin/contact-messages" element={<AdminContacts />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
         </Routes>
